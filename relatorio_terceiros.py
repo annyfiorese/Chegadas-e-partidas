@@ -11,7 +11,7 @@ from selenium.common.exceptions import StaleElementReferenceException
 def selecionar_opcao_com_tentativa(driver, element_id, valor, tentativas=3):
     for _ in range(tentativas):
         try:
-            elemento_modulo = WebDriverWait(driver, 10).until(
+            elemento_modulo = WebDriverWait(driver, 60).until(
                 EC.presence_of_element_located((By.ID, element_id))
             )
             dropdown = Select(elemento_modulo)

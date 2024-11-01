@@ -28,8 +28,9 @@ def formatar_data(data):
 
 def executar_relatorio_acesso(driver, datainicio, datafim):
     try:
-        relatorios = ["7261", "7351", "7255", "7205", "7210"]
+        relatorios = ["7261", "7351", "7205", "7210"]
         for relatorio in relatorios:
+            time.sleep(2)
             
             # Localize o campo de seleção de relatório Acesso
             selecionar_opcao_com_tentativa(driver, "MainContentPlaceHolder_cphLeftColumn_ddlModulo_ddlCombo", "01")
