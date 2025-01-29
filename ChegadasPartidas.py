@@ -18,7 +18,7 @@ from menu import execultar_menu_navegação
 driver = webdriver.Chrome()
 
 # Aguarde um pouco
-driver.implicitly_wait(10)
+driver.implicitly_wait(10   )
 
 try:
     # Abra o site
@@ -37,31 +37,8 @@ try:
     datainicio = askstring("Informações", "Digite a data de início (DDMMYYYY):")
     datafim = askstring("Informações", "Digite a data de término (DDMMYYYY):")
 
-    # Encontrando campo de usuário
-    campo_usuario = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located(
-            (By.ID, "MainContentPlaceHolder_tbxUsuario_tbxEdit"))
-    )
-    # Insira o texto no campo de usuário
-    campo_usuario.send_keys(usuario)
-
-    # Encontrando campo de senha
-    campo_senha = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located(
-            (By.ID, "MainContentPlaceHolder_tbxSenha_tbxEdit"))
-    )
-    # Insira o texto no campo de senha
-    campo_senha.send_keys(senha)
-
-    # Buscando o botão de login
-    botao_login = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located(
-            (By.ID, "MainContentPlaceHolder_btnLogin"))
-    )
-    # Clicando para fazer o login
-    botao_login.click()
     # Executar menu
-    execultar_menu_navegação(driver)
+    execultar_menu_navegação(driver,senha,usuario)
     
     # Executar o relatorio de terceiros
     executar_reletorio_terceiros(driver)
